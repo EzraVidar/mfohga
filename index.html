@@ -56,10 +56,15 @@
 function help(){
 		window.location="";
 }
+</script>
+<script type="text/javascript">
+    function didLoad() {
+        window.location.href="weiyou://didLoad"  // by decamincow
+    }
 </script>		
 
 	</head>
-	<body>
+	<body onLoad="didLoad()">
 		<div style="text-align:center;" >
 			<canvas id="linkScreen">
 <!--				很遗憾，您的浏览器不支持HTML5，请使用支持HTML5的浏览器。-->
