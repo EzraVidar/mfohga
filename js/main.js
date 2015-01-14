@@ -2203,8 +2203,8 @@ var link, jsGame;
                                                        deColor: "#000"
                                                        })
                                                .create({
-                                                       id: "rank",
-                                                       value: "RATE (评价)",
+                                                       id: "difficulty3",
+                                                       value: "HELL (地狱)",
                                                        x: i - 272 >> 1,
                                                        y: u + 420,
                                                        width: 272,
@@ -2221,6 +2221,26 @@ var link, jsGame;
                                                        dey: 0,
                                                        deColor: "#000"
                                                        }).base().gameFlow.menu()
+
+//                                               .create({//decamincow
+//                                                       id: "rank",
+//                                                       value: "RATE (评价)",
+//                                                       x: i - 272 >> 1,
+//                                                       y: u + 420,
+//                                                       width: 272,
+//                                                       height: 80,
+//                                                       font: "36px 微软雅黑",
+//                                                       imageId: "btns1",
+//                                                       sx: 0,
+//                                                       sy: 0,
+//                                                       color: "#FFF",
+//                                                       hx: 272,
+//                                                       hy: 0,
+//                                                       hColor: "#FFF",
+//                                                       dex: 272,
+//                                                       dey: 0,
+//                                                       deColor: "#000"
+//                                                       }).base().gameFlow.menu()
                                                };
                                                
                                                f();
@@ -2340,7 +2360,9 @@ var link, jsGame;
 //                                                                                       })
                                                .base().gameFlow.zone();
                                                var n = e.localStorage.getItem("NotDieAnyoneBestTime" + l.module);
+                                               window.location.href="weiyou://getData/noonedie_" + l.module + "_hiScore/callbackHandler"; // by decamincow
                                                n == null && (n = "0"), l.bestTime = parseInt(n), l.time > l.bestTime && e.localStorage.setItem("NotDieAnyoneBestTime" + l.module, l.time.toString()), dp_submitScore(l.module, l.time * (l.module - 1))
+                                               ;window.location.href="weiyou://putData/noonedie_" + l.module + "_hiScore/" + l.time.toString(); // by decamincow
                                                }
                                                }
                                                }
@@ -2361,3 +2383,14 @@ var link, jsGame;
                                                                                                                                                                                                                         t.init()
                                                                                                                                                                                                                         })
                                                                               }), define("main", function() {});
+function callbackHandler(value) {//decamincow
+    //    alert("callbackHandlervalue=" + value );
+    
+    if(value == null && !isNaN(value)){
+        temp = 0;
+    }
+    if((value == null && isNaN(value)) || (isNaN(value) && value == "")){
+        temp = "0";
+    }
+    e.localStorage.setItem("NotDieAnyoneBestTime" + l.module, value)
+}
